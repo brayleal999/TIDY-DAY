@@ -1,8 +1,90 @@
 import { ModeToggle } from "@/components/ToggleMode"
+// import Link from "next/link"
+// import { NavigationMenu, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu"
+// import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
+// import { Button } from "@/components/ui/button"
+// import { MenuIcon, MountainIcon } from "lucide-react"
 
 const Principal = () => {
     return (
         <>
+            {/* <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
+                <Link href="#" className="mr-6 flex items-center" prefetch={false}>
+                    <MountainIcon className="h-6 w-6" />
+                    <span className="sr-only">Acme Inc</span>
+                </Link>
+                <NavigationMenu className="hidden lg:flex">
+                    <NavigationMenuList>
+                        <NavigationMenuLink asChild>
+                            <Link
+                                href="/"
+                                className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                                prefetch={false}
+                            >
+                                Home
+                            </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                            <Link
+                                href="#"
+                                className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                                prefetch={false}
+                            >
+                                About
+                            </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                            <Link
+                                href="#"
+                                className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                                prefetch={false}
+                            >
+                                Services
+                            </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                            <Link
+                                href="#"
+                                className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                                prefetch={false}
+                            >
+                                Contact
+                            </Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuList>
+                </NavigationMenu>
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="outline" size="icon" className="ml-auto lg:hidden">
+                            <MenuIcon className="h-6 w-6" />
+                            <span className="sr-only">Toggle navigation menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right">
+                        <Link href="#" className="flex items-center" prefetch={false}>
+                            <MountainIcon className="h-6 w-6" />
+                            <span className="sr-only">Acme Inc</span>
+                        </Link>
+                        <div className="grid gap-2 py-6">
+                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                Home
+                            </Link>
+                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                About
+                            </Link>
+                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                Services
+                            </Link>
+                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                Contact
+                            </Link>
+                        </div>
+                    </SheetContent>
+                </Sheet>
+                <div className="ml-auto">
+                    <Button>Get Started</Button>
+                </div>
+            </header> */}
             <header className="">
                 <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
                     <a className="block text-blue-600" href="#">
@@ -27,29 +109,24 @@ const Principal = () => {
                                 <li>
                                     <a className="" href="#"> Services </a>
                                 </li>
-
-                                <li>
-                                    <a className="" href="#"> Projects </a>
-                                </li>
-
-                                <li>
-                                    <a className="" href="#"> Blog </a>
-                                </li>
                             </ul>
                         </nav>
 
                         <div className="flex items-center gap-4">
                             <ModeToggle />
-                            <div className="sm:flex sm:gap-4">
+                            <div className="flex gap-4">
                                 <a className="block rounded-md bg-blue-600 px-5 py-2.5 text-sm font-medium  transition hover:bg-blue-700" href="#">
                                     Login</a>
 
-                                <a className="hidden rounded-md bg-gray-300 px-5 py-2.5 text-sm font-medium text-blue-600 transition hover:text-blue-600/75 sm:block" href="#">
+                                <a className="block rounded-md bg-gray-300 px-5 py-2.5 text-sm font-medium text-blue-600 transition hover:text-blue-600/75" href="#">
                                     Register
                                 </a>
                             </div>
 
-                            <button
+                            <button onClick={() => {
+                                const menu = document.getElementById('mobile-menu');
+                                menu.classList.toggle('hidden');
+                            }}
                                 className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
                                 <span className="sr-only">Toggle menu</span>
                                 <svg
@@ -65,11 +142,27 @@ const Principal = () => {
                             </button>
                         </div>
                     </div>
+                    <div id="mobile-menu" className="hidden md:hidden absolute top-16 right-0 bg-white w-48 shadow-lg py-2 z-10">
+                        <ul className="flex flex-col gap-2 items-center text-sm">
+                            <li>
+                                <a className="block py-2 px-4 text-gray-800 hover:bg-gray-100" href="#">About</a>
+                            </li>
+                            <li>
+                                <a className="block py-2 px-4 text-gray-800 hover:bg-gray-100" href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a className="block py-2 px-4 text-gray-800 hover:bg-gray-100" href="#">History</a>
+                            </li>
+                            <li>
+                                <a className="block py-2 px-4 text-gray-800 hover:bg-gray-100" href="#">Services</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </header>
+            </header >
 
 
-            <section className="relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('src/assets/login1.jpg')" }}>
+            <section id="mobile-menu" className="relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('src/assets/login1.jpg')" }}>
                 <div className="absolute inset-0 bg-gray-900/75"></div>
 
                 <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
@@ -96,9 +189,9 @@ const Principal = () => {
 
 
             <section>
-                <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+                <div className="max-w-screen-xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                     <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
-                        <div className="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
+                        <div className="max-w-lg mx-auto lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
                             <h2 className="text-3xl font-bold sm:text-4xl">Find your career path</h2>
 
                             <p className="mt-4 text-gray-600">
@@ -109,7 +202,7 @@ const Principal = () => {
 
                             <a
                                 href="#"
-                                className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                                className="mt-8 inline-block bg-blue-600 text-sm font-medium rounded px-12 py-3 text-sm"
                             >
                                 Get Started Today
                             </a>
@@ -117,7 +210,7 @@ const Principal = () => {
 
                         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
@@ -149,28 +242,11 @@ const Principal = () => {
                             </a>
 
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                        <path
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                        ></path>
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                        ></path>
-                                    </svg>
+
                                 </span>
 
                                 <h2 className="mt-2 font-bold">Accountant</h2>
@@ -181,28 +257,11 @@ const Principal = () => {
                             </a>
 
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                        <path
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                        ></path>
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                        ></path>
-                                    </svg>
+
                                 </span>
 
                                 <h2 className="mt-2 font-bold">Accountant</h2>
@@ -213,28 +272,11 @@ const Principal = () => {
                             </a>
 
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                        <path
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                        ></path>
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                        ></path>
-                                    </svg>
+
                                 </span>
 
                                 <h2 className="mt-2 font-bold">Accountant</h2>
@@ -245,28 +287,11 @@ const Principal = () => {
                             </a>
 
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                        <path
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                        ></path>
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                        ></path>
-                                    </svg>
+
                                 </span>
 
                                 <h2 className="mt-2 font-bold">Accountant</h2>
@@ -277,28 +302,11 @@ const Principal = () => {
                             </a>
 
                             <a
-                                className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                className="block rounded-xl border border-blue-600 p-4 shadow-sm focus:outline-none focus:ring"
                                 href="#"
                             >
                                 <span className="inline-block rounded-lg bg-gray-50 p-3">
-                                    <svg
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                        <path
-                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                        ></path>
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                        ></path>
-                                    </svg>
+
                                 </span>
 
                                 <h2 className="mt-2 font-bold">Accountant</h2>
@@ -348,6 +356,41 @@ const Principal = () => {
                                 className="h-40 w-full object-cover sm:h-56 md:h-full"
                             />
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="">
+                <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <h2 className="text-3xl font-bold sm:text-4xl">Trusted by eCommerce Businesses</h2>
+
+                        <p className="mt-4 text-gray-400 sm:text-xl">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores laborum labore
+                            provident impedit esse recusandae facere libero harum sequi.
+                        </p>
+                    </div>
+
+                    <div className="mt-8 sm:mt-12">
+                        <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
+                                <dt className="order-last text-lg font-medium">Total Sales</dt>
+
+                                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">$4.8m</dd>
+                            </div>
+
+                            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
+                                <dt className="order-last text-lg font-medium ">Official Addons</dt>
+
+                                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
+                            </div>
+
+                            <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
+                                <dt className="order-last text-lg font-medium ">Total Addons</dt>
+
+                                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
+                            </div>
+                        </dl>
                     </div>
                 </div>
             </section>
@@ -496,22 +539,7 @@ const Principal = () => {
                                     <li>
                                         <a
                                             className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                            href="#"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="size-5 shrink-0 text-gray-900 dark:text-white"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                                />
-                                            </svg>
+                                            href="#">
 
                                             <span className="flex-1 text-gray-700 dark:text-gray-300"> john@doe.com </span>
                                         </a>
@@ -520,50 +548,13 @@ const Principal = () => {
                                     <li>
                                         <a
                                             className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                            href="#"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="size-5 shrink-0 text-gray-900 dark:text-white"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                                />
-                                            </svg>
-
+                                            href="#">
                                             <span className="flex-1 text-gray-700 dark:text-gray-300">0123456789</span>
                                         </a>
                                     </li>
 
                                     <li
-                                        className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="size-5 shrink-0 text-gray-900 dark:text-white"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                            />
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                            />
-                                        </svg>
-
+                                        className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end">
                                         <address className="-mt-0.5 flex-1 not-italic text-gray-700 dark:text-gray-300">
                                             213 Lane, London, United Kingdom
                                         </address>

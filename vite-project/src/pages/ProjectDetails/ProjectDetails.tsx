@@ -22,7 +22,7 @@ const ProjectDetails = () => {
                                 Create Ecommerce Website Using React</h1>
                             <div className="space-y-5 pb-10  text-sm" >
                                 <p className="w-full md:max-w-lg lg:max-w-xl text-sm">Lorem, ipsum dolor sit
-                                 amet consectetur adipisicing elit.</p>
+                                amet consectetur adipisicing elit.</p>
                                 <div className="flex">
                                     <p className="w-36">Project lead :</p>
                                     <p>TidyDay</p>
