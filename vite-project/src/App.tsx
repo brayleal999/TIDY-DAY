@@ -11,9 +11,8 @@ function App() {
 
 	return (
 		<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-			{/* <Principal />
-			{
-				true ? <div> */}
+			{/* {
+				false ? <div>  */}
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/project/:id' element={<ProjectDetails />} />
@@ -21,7 +20,7 @@ function App() {
 						<Route path='/upgrade_plan' element={<Subscription />} />
 					</Routes>
 				{/* </div> : <Principal />
-			} */}
+			}  */}
 		</ThemeProvider>
 	)
 }

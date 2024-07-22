@@ -4,10 +4,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { MagnifyingGlassIcon, MixerHorizontalIcon } from "@radix-ui/react-icons"
+import { ChevronLeftIcon, MagnifyingGlassIcon, MixerHorizontalIcon, PlusIcon } from "@radix-ui/react-icons"
 import { useState } from "react"
 import ProjectCard from "../project/ProjectCard"
 import Navbar from "../Navbar/Navbar"
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog"
+import CreateProjectForm from "../project/CreateProjectForm"
+import { ChevronRightIcon } from "lucide-react"
 
 export const tags = [
     "all",
@@ -23,18 +26,35 @@ export const tags = [
 ];
 const ProjectList = () => {
     const [keyword, setKeyword] = useState("");
-    const handleFilterChange = (section, value) => {
+    const handleFilterChange = (section: any, value: any) => {
         console.log("value", value, section);
     };
-    const handleSearchChange = (e) => {
+    const handleSearchChange = (e: any) => {
         setKeyword(e.target.value)
 
     }
+
+    const [currentDate, setCurrentDate] = useState(new Date())
+    const handlePrevMonth = () => {
+        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))
+    }
+    const handleNextMonth = () => {
+        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))
+    }
+    const handlePrevYear = () => {
+        setCurrentDate(new Date(currentDate.getFullYear() - 1, currentDate.getMonth(), 1))
+    }
+    const handleNextYear = () => {
+        setCurrentDate(new Date(currentDate.getFullYear() + 1, currentDate.getMonth(), 1))
+    }
+    const daysOfWeek = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate()
+    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay()
     return (
         <>
-            <Navbar/>
-            <div className="relative px-5 lg:px-0 lg:flex gap-5 justify-center py-5">
-                <section className="filterSection">
+            <Navbar />
+            <div className="relative px-2 lg:px-20 lg:flex gap-6 justify-center py-5">
+                <section className="filterSection lg:mr-4">
                     <Card className="p-5 sticky top-10">
                         <div className="flex justify-between lg:w-[20rem]">
                             <p className="text-xl tracking-wider">filters</p>
@@ -84,15 +104,28 @@ const ProjectList = () => {
                         </CardContent>
                     </Card>
                 </section>
-                <section className="projectListSection w-full lg:w-[48rem]">
+                <section className="projectListSection lg:w-[48rem]">
                     <div className="flex gap-2 items-center pb-5 justify-between">
 
                         <div className="relative p-0 w-full">
                             <Input onChange={handleSearchChange} placeholder="search project" className="40% px-9" />
+                            <Dialog>
+                                <DialogTrigger>
+                                    <Button variant="ghost" className="absolute top-0 right-0 border-1">
+                                        <PlusIcon className="w-4 h-4" />
+                                        <span>Add</span>
+                                    </Button>
+                                </DialogTrigger>
+
+                                <DialogContent>
+                                    <DialogHeader>Create New Project</DialogHeader>
+                                    <CreateProjectForm />
+                                </DialogContent>
+                            </Dialog>
                             <MagnifyingGlassIcon className="absolute top-3 left-4" />
                         </div>
                     </div>
-                    <div className="space-y-5 min-h-[74vh]">
+                    <div className="space-y-5 min-h-[60vh]">
 
                         {
                             keyword ? [1, 1, 1].map((item) => <ProjectCard key={item} />) :
@@ -101,9 +134,55 @@ const ProjectList = () => {
 
                     </div>
                 </section>
+
+                <div className="bg-background rounded-lg border p-5 lg:ml-4 lg:w-[30rem] h-[42vh]">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                        <Button variant="ghost" size="icon" onClick={handlePrevYear} className="text-muted-foreground hover:bg-muted">
+                            <ChevronLeftIcon className="w-4 h-4" />
+                        </Button>
+                        <Button variant="ghost"
+                            size="icon"
+                            onClick={handlePrevMonth}
+                            className="text-muted-foreground hover:bg-muted">
+                            <ChevronLeftIcon className="w-4 h-4" />
+                        </Button>
+                        <div className="text-lg font-medium">
+                            {currentDate.toLocaleString("default", { month: "long" })} {currentDate.getFullYear()}
+                        </div>
+                        <Button variant="ghost"
+                            size="icon"
+                            onClick={handleNextMonth}
+                            className="text-muted-foreground hover:bg-muted">
+                            <ChevronRightIcon className="w-4 h-4" />
+                        </Button>
+                        <Button variant="ghost" size="icon" onClick={handleNextYear} className="text-muted-foreground hover:bg-muted">
+                            <ChevronRightIcon className="w-4 h-4" />
+                        </Button>
+                    </div>
+                </div>
+                <div className="grid grid-cols-7 gap-2">
+                    {daysOfWeek.map((day, index) => (
+                        <div key={index} className="flex items-center justify-center h-10 font-medium text-muted-foreground">
+                            {day}
+                        </div>
+                    ))}
+                    {Array.from({ length: firstDayOfMonth }, (_, i) => i).map((_, index) => (
+                        <div key={index} className="h-10" />
+                    ))}
+                    {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day, index) => (
+                        <div key={index}
+                            className={`flex items-center justify-center h-10 rounded-md transition-colors hover:bg-muted ${currentDate.getDate() === day && currentDate.getMonth() === new Date().getMonth()
+                                    ? "bg-primary text-primary-foreground"
+                                    : ""
+                                }`}>
+                            {day}
+                        </div>
+                    ))}
+                </div>
+            </div>
             </div>
         </>
-
     )
 }
 

@@ -19,7 +19,7 @@ const Principal = () => {
                                 </li>
 
                                 <li>
-                                    <a className="" href="#"> About </a>
+                                    <a className="" href="../Auth/Login.tsx"> About </a>
                                 </li>
 
                                 <li>
@@ -270,7 +270,7 @@ const Principal = () => {
             </section>
 
             <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-                <h1 className="text-5xl font-semibold pb-14 text-center text-blue-600">CHOOSE YOUR BEST VERSION</h1>
+                <h1 className="text-3xl font-extrabold sm:text-5xl  pb-14 text-center text-blue-600">¡CHOOSE YOUR BEST VERSION!</h1>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8 ">
                     <div className="divide-y divide-gray-200 rounded-2xl border border-blue-600 shadow-sm">
                         <div className="p-6 sm:px-8">
