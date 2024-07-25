@@ -1,8 +1,12 @@
 import api from "@/config/api"
 import { ACCEPT_INVITATION_REQUEST, ACCEPT_INVITATION_SUCCESS, CREATE_PROJECT_REQUEST, CREATE_PROJECT_SUCCESS, DELETE_PROJECT_REQUEST, DELETE_PROJECT_SUCCESS, FETCH_PROJECT_BY_ID_REQUEST, FETCH_PROJECTS_BY_ID_SUCCESS, FETCH_PROJECTS_REQUEST, FETCH_PROJECTS_SUCCESS, INVITE_TO_PROJECT_REQUEST, INVITE_TO_PROJECT_SUCCESS, SEARCH_PROJECT_REQUEST, SEARCH_PROJECT_SUCCESS } from "./ActionTypes"
 
+type fecthProjectsProps = {
+    category: any;
+    tag: any;
+}
 
-export const fecthProjects = ({category, tag}) => async(dispatch:any) => {
+export const fecthProjects = ({category, tag}: fecthProjectsProps) => async(dispatch:any) => {
     dispatch({type: FETCH_PROJECTS_REQUEST})
     try {
         const {data} = await api.get("api/projects", {params:{category,tag}})
@@ -57,7 +61,12 @@ export const deleteProject = (projectId:any) => async(dispatch:any) => {
     }
 }
 
-export const inviteToProject = ({email, projectId}) => async(dispatch:any) => {
+type InviteToProjectProps = {
+    email: String;
+    projectId: number;
+};
+
+export const inviteToProject = ({email, projectId}: InviteToProjectProps) => async(dispatch:any) => {
     dispatch({type: INVITE_TO_PROJECT_REQUEST})
     try {
         const {data} = await api.post("api/projects/invite", {email: email, projectId: projectId})
@@ -68,7 +77,12 @@ export const inviteToProject = ({email, projectId}) => async(dispatch:any) => {
     }
 }
 
-export const acceptInvitation = ({invitationToken, navigate}) => async(dispatch:any) => {
+type acceptInvitationProps = {
+    invitationToken: any;
+    navigate: any;
+};
+
+export const acceptInvitation = ({invitationToken, navigate}:acceptInvitationProps) => async(dispatch:any) => {
     dispatch({type: ACCEPT_INVITATION_REQUEST})
     try {
         const {data} = await api.get("api/projects/accept_invitation", {

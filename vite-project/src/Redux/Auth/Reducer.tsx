@@ -34,6 +34,6 @@ export const authReducer = (state=initialState,action:any) => {
             return initialState;
                 
         default:
-            state;
+            return state;
     }
 }
