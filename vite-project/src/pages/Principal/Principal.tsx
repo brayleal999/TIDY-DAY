@@ -1,6 +1,7 @@
 import { ModeToggle } from "@/components/ToggleMode"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 const Principal = () => {
     return (
@@ -15,19 +16,15 @@ const Principal = () => {
                         <nav aria-label="Global" className="hidden md:block">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                    <a className="" href="#"> Home </a>
+                                    <Link to="/">Home</Link>
                                 </li>
 
                                 <li>
-                                    <a className="" href="../Auth/Login.tsx"> About </a>
+                                    <Link to="/aboutUs">About Us</Link>
                                 </li>
 
                                 <li>
-                                    <a className="" href="#"> About Us</a>
-                                </li>
-
-                                <li>
-                                    <a className="" href="#"> Help & Support </a>
+                                    <Link to="/support">Help & Support</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -35,11 +32,12 @@ const Principal = () => {
                         <div className="flex items-center gap-4">
                             <ModeToggle />
                             <div className="flex gap-4">
-                                <a className="block rounded-md text-gray-100 bg-blue-600 px-5 py-2.5 text-sm font-medium  
-                            transition hover:bg-blue-700" href="#">Login</a>
+                                <Link to="/login" className="block rounded-md text-gray-100 bg-blue-600 px-5 py-2.5 text-sm font-medium  
+                                    transition hover:bg-blue-700">Login</Link>
 
-                                <a className="block rounded-md bg-gray-300 px-5 py-2.5 text-sm font-medium
-                            text-blue-600 transition hover:text-blue-600/75" href="#">Register</a>
+                                <Link to="/signup" className="block rounded-md bg-gray-300 px-5 py-2.5 text-sm font-medium
+                                    text-blue-600 transition hover:text-blue-600/75">Register</Link>
+
                             </div>
 
                             <Sheet>
@@ -66,19 +64,15 @@ const Principal = () => {
                                         <nav aria-label="Global" className="h-8 w-8">
                                             <ul className="space-y-2">
                                                 <li>
-                                                    <a className="" href="#"><Button variant="ghost">Home</Button></a>
+                                                    <Button variant="ghost"><Link to="/">Home</Link></Button>
                                                 </li>
 
                                                 <li>
-                                                    <a className="" href="#"><Button variant="ghost">About</Button> </a>
+                                                    <Button variant="ghost"><Link to="/aboutUs">About Us</Link></Button>
                                                 </li>
 
                                                 <li>
-                                                    <a className="" href="#"><Button variant="ghost">About Us</Button></a>
-                                                </li>
-
-                                                <li>
-                                                    <a className="" href="#"><Button variant="ghost">Help & Support</Button></a>
+                                                    <Button variant="ghost"><Link to="/support">Help & Support</Link></Button>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -104,12 +98,9 @@ const Principal = () => {
                             through effective tools and tips to organize, structure and plan your day to day.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-4 text-center">
-                            <a href="#" className="block w-full rounded bg-blue-500 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring sm:w-auto">
-                                Get Started
-                            </a>
-                            <a href="#" className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-500 shadow hover:text-blue-700 focus:outline-none focus:ring sm:w-auto">
-                                Learn More
-                            </a>
+                            <Link to={"/login"} className="block w-full rounded bg-blue-500 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring sm:w-auto">Get Started</Link>
+
+                            <Link to={"/aboutUs"} className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-500 shadow hover:text-blue-700 focus:outline-none focus:ring sm:w-auto">Learn More</Link>
                         </div>
                     </div>
                 </div>
@@ -127,9 +118,7 @@ const Principal = () => {
                                 In TidyDay you will find:
                             </p>
 
-                            <a href="#" className="mt-8 inline-block bg-blue-600 text-gray-100 font-medium rounded px-12 py-3 text-sm">
-                                Get Started Today
-                            </a>
+                            <Link to={"/login"} className="mt-8 inline-block bg-blue-600 text-gray-100 font-medium rounded px-12 py-3 text-sm">Get Started Today</Link>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -249,9 +238,7 @@ const Principal = () => {
                                 </p>
 
                                 <div className="mt-4 md:mt-8">
-                                    <a href="#" className="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400">
-                                        Get Started Today
-                                    </a>
+                                    <Link to={"/login"} className="inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400">Get Started Today</Link>
                                 </div>
                             </div>
                         </div>
@@ -302,7 +289,7 @@ const Principal = () => {
                                         className="size-5 text-blue-700">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
-                                    <span> 10 users </span>
+                                    <span> basic functions </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -314,7 +301,7 @@ const Principal = () => {
                                         className="size-5 text-blue-700">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
-                                    <span> 2GB of storage </span>
+                                    <span> choose avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -327,7 +314,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Email support </span>
+                                    <span> change theme </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -340,7 +327,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Help center access </span>
+                                    <span> best support </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -353,7 +340,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Phone support </span>
+                                    <span> custom avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -366,7 +353,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Community access </span>
+                                    <span> premium options </span>
                                 </li>
                             </ul>
                         </div>
@@ -401,7 +388,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> 20 users </span>
+                                    <span> basic functions </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -414,7 +401,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> 5GB of storage </span>
+                                    <span> choose avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -427,7 +414,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span > Email support </span>
+                                    <span > change theme </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -440,7 +427,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> Help center access </span>
+                                    <span> best support </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -453,7 +440,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Phone support </span>
+                                    <span> custom avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -466,7 +453,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
 
-                                    <span> Community access </span>
+                                    <span> premium options </span>
                                 </li>
                             </ul>
                         </div>
@@ -502,7 +489,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> 50 users </span>
+                                    <span> basic functions </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -515,7 +502,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> 20GB of storage </span>
+                                    <span> choose avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -528,7 +515,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> Email support </span>
+                                    <span> change theme </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -541,7 +528,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span > Help center access </span>
+                                    <span > best support </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -554,7 +541,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> Phone support </span>
+                                    <span> custom avatar </span>
                                 </li>
 
                                 <li className="flex items-center gap-1">
@@ -567,7 +554,7 @@ const Principal = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                     </svg>
 
-                                    <span> Community access </span>
+                                    <span> premium options </span>
                                 </li>
                             </ul>
                         </div>
@@ -677,20 +664,16 @@ const Principal = () => {
 
                                 <ul className="mt-8 space-y-4 text-sm">
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            About</a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">About</Link>
                                     </li>
 
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            About Us </a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">About Us</Link>
                                     </li>
 
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            Help & Support</a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">Help & Support</Link>
                                     </li>
-
                                 </ul>
                             </div>
 
@@ -699,20 +682,16 @@ const Principal = () => {
 
                                 <ul className="mt-8 space-y-4 text-sm">
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            Mission</a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">Mission</Link>
                                     </li>
 
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            Vision</a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">Vision</Link>
                                     </li>
 
                                     <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75" href="#">
-                                            Goals</a>
+                                        <Link to={"/aboutUs"} className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75">Goals</Link>
                                     </li>
-
                                 </ul>
                             </div>
 
