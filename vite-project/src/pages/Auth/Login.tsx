@@ -95,8 +95,9 @@ const Login = (props: LogInProps) => {
                 </div>
             </header >
 
-            <section className="flex justify-center items-center min-h-screen">
-                <div className="grid md:grid-cols-2 w-full max-w-screen-xl mx-auto">
+            <section className="flex flex-col items-center justify-center h-[90vh]">
+                <div className="w-full max-w-screen-xl mx-auto p-4">
+                <div className="grid md:grid-cols-2 gap-8">
                     <Form {...form}>
                         <div className="flex items-center justify-center md:pr-8 md:pl-8">
                             <form action="#" className="max-w-md w-full" onSubmit={form.handleSubmit(onSubmit)}>
@@ -149,6 +150,7 @@ const Login = (props: LogInProps) => {
                     <div className="hidden md:block relative md:pr-8">
                         <img src="/src/assets/login2.jpg" alt="Image" className="h-full w-full object-cover" />
                     </div>
+                </div>
                 </div>
             </section>
         </>
